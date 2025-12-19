@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { useContext } from "react";
+import { Route, Routes } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Survey from "./pages/Survey";
@@ -13,7 +11,7 @@ import MainLayout from "./layouts/MainLayout";
 import Record from "./pages/Record";
 import History from "./pages/History";
 import Signup from "./pages/Signup";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import { useAuth } from "./context/AuthContext";
 import Loading from "./components/Loading";
 import SettingsChangeName from "./pages/SettingsChangeName";
 import SettingsChangeEmail from "./pages/SettingsChangeEmail";
@@ -23,9 +21,6 @@ import SettingsUpdateInfo from "./pages/SettingsUpdateInfo";
 import ProfileSettings from "./pages/ProfileSettings";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [token, setToken] = useState("");
-
   const { loading } = useAuth();
 
   if (loading) {
