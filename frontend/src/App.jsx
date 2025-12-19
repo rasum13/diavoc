@@ -20,6 +20,7 @@ import SettingsChangeEmail from "./pages/SettingsChangeEmail";
 import SettingsChangePassword from "./pages/SettingsChangePassword";
 import SettingsLayout from "./layouts/SettingsLayout";
 import SettingsUpdateInfo from "./pages/SettingsUpdateInfo";
+import ProfileSettings from "./pages/ProfileSettings";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -41,6 +42,7 @@ function App() {
         <Route path="/messages" element={<Messages />} />
         <Route path="/history" element={<History />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/settings/profile" element={<ProfileSettings />} />
         <Route path="/" element={<SettingsLayout />}>
           <Route path="/settings/name" element={<SettingsChangeName />} />
           <Route path="/settings/email" element={<SettingsChangeEmail />} />

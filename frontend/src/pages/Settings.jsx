@@ -68,11 +68,8 @@ const Settings = () => {
   return (
     <>
       <h1 className="mb-4">Settings</h1>
-      <div className="py-0 rounded-md shadow-[2px_2px_12px] shadow-neutral-200 border-[0.5px] border-neutral-300 flex flex-col overflow-hidden">
-        <SettingsButton to="/settings/name">Change Name</SettingsButton>
-        <SettingsButton to="/settings/email">Change Email</SettingsButton>
-        <SettingsButton to="/settings/password">Change Password</SettingsButton>
-        <SettingsButton to="/settings/info">Update Info</SettingsButton>
+      <div className="py-0 rounded-md shadow-[2px_2px_12px] shadow-neutral-100 border-[0.5px] border-neutral-300 flex flex-col overflow-hidden">
+        <SettingsButton to="/settings/profile">Profile Settings</SettingsButton>
         <LogoutButton />
       </div>
     </>
