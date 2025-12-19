@@ -16,7 +16,7 @@ const ToggleInput = ({ label, trueValue, falseValue, onChange, currentValue, err
 
   return (
     <div className="grid grid-cols-2 items-center">
-      <div className="text-left">{label}:</div>
+      <div className="text-left">{label}</div>
       <div className="grid grid-cols-2 gap-2">
         <div
           onClick={() => setYes(true)}
