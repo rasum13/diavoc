@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { api } from "../lib/axios";
+import { Mic } from "lucide-react";
 
 const requiredAudioLength = 30;
 
@@ -26,15 +27,15 @@ const AudioRecorder = () => {
 
   return (
     <div className="text-center">
-      <h2
-        className={`text-center text-8xl font-medium m-4 ${recording || seconds > requiredAudioLength ? "text-primary" : "text-neutral-200"}`}
-      >
+      <div
+        className={`flex flex-col justify-center items-center text-center text-3xl font-medium m-4 ${recording || seconds > requiredAudioLength ? "text-primary" : "text-neutral-200"}`}
+      ><Mic size={160} className={`${recording ? "bg-primary animate-recording" : "bg-neutral-200"} rounded-full p-8 mb-4 text-fg-dark`} />
         {seconds}s
-      </h2>
+      </div>
       <div className="grid grid-cols-2 gap-4">
         {recording ? (
           <Button className="bg-red" onClick={stopRecording}>
-            <div className={recording && "animate-pulse"}>
+            <div>
               <FontAwesomeIcon icon={faMicrophone} /> Stop
             </div>
           </Button>
