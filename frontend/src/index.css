@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: Poppins;
+  --color-primary: #21c8c2;
+  --color-primary-light: #21c8c212;
+  --color-primary-dark: #003249;
+  --color-red: #e85f5c;
+  --color-red-light: #e85f5c12;
+  --color-yellow: #edae49;
+  --color-yellow-light: #edae4912;
+  --color-bg-secondary: #e2efef;
+  --color-bg-dark: #323232;
+  --color-fg-dark: var(--color-neutral-100);
+  --color-fg-light: var(--color-neutral-900);
+}
+
+@layer base {
+  h1 { @apply text-4xl font-bold mb-2; }
+  h2 { @apply text-3xl font-bold; }
+  h3 { @apply text-2xl font-bold; }
+  p { @apply text-neutral-500; }
+}
