@@ -25,7 +25,7 @@ def read_protected(user: UserOutput = Depends(get_current_user)):
 
 ### FOR TESTING ###
 
-@app.post("/analyze")
-def sleep5():
-    sleep(2)
-    return {"message": "done"}
+# @app.post("/analyze")
+# def sleep5():
+#     sleep(2)
+#     return {"message": "done"}

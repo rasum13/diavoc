@@ -17,7 +17,7 @@ from app.schemas.user import (
 )
 
 
-def get_user(db: Session, user_id: int) -> User | None:
+def get_user(db: Session, user_id: int) -> User:
     return db.query(User).filter(User.id == user_id).first()
 
 
