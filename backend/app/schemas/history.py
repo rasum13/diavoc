@@ -6,3 +6,5 @@ class HistoryItem(BaseModel):
     date: date
     score: float
 
+class HistoryItemCreate(BaseModel):
+    score: float
