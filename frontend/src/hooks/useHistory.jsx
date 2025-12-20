@@ -10,7 +10,12 @@ const useHistory = ( limit = null ) => {
     const loadHistory = async () => {
       try {
         const res = await api.get(`/history${limit == null ? "" : "?limit=" + limit}`);
-        setHistory(res.data);
+        // setHistory(res.data);
+        const newHistory = res.data.slice()
+        newHistory.sort((a, b) => {
+          return a.date > b.date;
+        })
+        setHistory(newHistory);
       } catch (err) {
         setError(err);
         setLoading(false);
