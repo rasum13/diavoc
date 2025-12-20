@@ -24,9 +24,18 @@ const Record = () => {
           <AudioRecorder />
         </>
       )}
-      <div className="m-4 text-primary hover:text-primary-dark cursor-pointer underline" onClick={() => setUpload(!upload)}>{upload ? "Record Instead" : "Upload Instead"}</div>
-      <Disclaimer title="Medical Disclaimer" message="This tool is for research and educational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. All results should be validated by a licensed healthcare professional.
-" />
+      <div
+        className="m-4 text-primary hover:text-primary-dark cursor-pointer underline"
+        onClick={() => setUpload(!upload)}
+      >
+        {upload ? "Record Instead" : "Upload Instead"}
+      </div>
+      <Disclaimer
+        className="mt-8"
+        title="Medical Disclaimer"
+        message="This tool is for research and educational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. All results should be validated by a licensed healthcare professional.
+"
+      />
     </div>
   );
 };

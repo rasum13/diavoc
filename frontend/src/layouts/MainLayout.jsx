@@ -13,7 +13,7 @@ const MainLayout = () => {
         ? <div className="px-8 py-8 mb-28 lg:ml-80 dark:bg-bg-dark h-200">
             <Outlet />
           </div>
-        : <Navigate to="/login" />
+        : <Navigate to="/splash" />
       }
     </>
   );
