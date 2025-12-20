@@ -15,16 +15,19 @@ const AudioUploader = () => {
   };
 
   const handleUpload = async () => {
-    if (!file) setError("Please select a file");
+    if (!file) {
+      setError("Please select a file");
+      return;
+    }
 
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("audio", file);
 
     try {
       setUploading(true);
-      const res = await api.postForm("/analyze", formData);
+      const res = await api.postForm("/predict", formData);
 
-      setResponse("Done");
+      setResponse(res.data.diagnosis);
       setError(null);
     } catch (err) {
       setError(err);

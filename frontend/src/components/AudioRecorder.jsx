@@ -17,11 +17,11 @@ const AudioRecorder = () => {
   // TODO: function to send audio data
   const sendAudio = async (audioBlob) => {
     const formData = new FormData();
-    formData.append("file", audioBlob, "voice.webm");
+    formData.append("audio", audioBlob, "voice.webm");
 
     setSending(true);
-    const res = await api.postForm("/analyze", formData);
-    setResponse("Done");
+    const res = await api.postForm("/predict", formData);
+    setResponse(res.data.diagnosis);
     setSending(false);
   };
 
