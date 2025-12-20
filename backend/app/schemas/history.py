@@ -5,5 +5,4 @@ from app.db.models.user import User
 class HistoryItem(BaseModel):
     date: date
     score: float
-    accuracy: float
 

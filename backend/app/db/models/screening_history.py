@@ -11,5 +11,4 @@ class ScreeningHistory(Base):
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey(User.id), nullable=False, index=True)
     score: Mapped[float] = mapped_column(Float, nullable=False)
-    accuracy: Mapped[float] = mapped_column(Float, nullable=False)
     date: Mapped[datetime] = mapped_column(DateTime, nullable=False)
