@@ -9,16 +9,16 @@ import {
   YAxis,
 } from "recharts";
 import useHistory from "../hooks/useHistory";
-import { parse, format } from "date-fns";
+import { parseISO, format } from "date-fns";
 
 const HistoryChart = () => {
-  const [history, loading, error] = useHistory(5);
+  const [history, loading, error] = useHistory(10);
 
   const data = history.slice();
   const formattedData = data.map((item) => {
     const dateString = item.date;
-    const dateObject = parse(dateString, "yyyy-MM-dd", 0);
-    const formattedDate = format(dateObject, "MMM d");
+    const dateObject = parseISO(dateString);
+    const formattedDate = format(dateObject, "MMM d, h:mm a");
     return {
       ...item,
       score: item.score * 100,
@@ -26,8 +26,8 @@ const HistoryChart = () => {
     };
   });
 
-  if (history.length == 0) {
-    return <p className="border-[0.5px] border-neutral-300 p-2 m-2 rounded-md">No scans yet</p>;
+  if (history.length < 3) {
+    return <p className="border-[0.5px] border-neutral-300 p-2 m-2 rounded-md">Not enough scans yet</p>;
   }
 
   return (
