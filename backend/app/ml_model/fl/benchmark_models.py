@@ -27,7 +27,7 @@ def prepare_data(male_pkl, female_pkl):
     for m, f in possible_paths:
         if os.path.exists(m) and os.path.exists(f):
             m_path, f_path = m, f
-            print(f"✅ Loading files from: {m_path}")
+            print(f"Loading files from: {m_path}")
             break
             
     if not m_path:
@@ -125,4 +125,4 @@ if __name__ == "__main__":
         X, y = prepare_data('data/male_embeddings.pkl', 'data/female_embeddings.pkl')
         run_optimized_benchmark(X, y)
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"Error: {e}")

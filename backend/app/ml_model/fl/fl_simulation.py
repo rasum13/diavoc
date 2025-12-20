@@ -69,7 +69,7 @@ def train_federated_system(X, y):
 def save_system(model, filename="diavoc_final_model.joblib"):
     # Note: In a real scenario, you'd also save the Scaler and PCA from data_loader
     joblib.dump(model, filename)
-    print(f"\n✅ Production model saved as: {filename}")
+    print(f"\nProduction model saved as: {filename}")
 
 # --- 3. Inference Function ---
 def infer(model_path, patient_features):

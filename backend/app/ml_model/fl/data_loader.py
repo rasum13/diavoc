@@ -47,7 +47,7 @@ def load_and_process_data(male_pkl_path, female_pkl_path):
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
 
-    print(f"✅ Data processed successfully: {X_scaled.shape[0]} samples, {X_scaled.shape[1]} features")
+    print(f"Data processed successfully: {X_scaled.shape[0]} samples, {X_scaled.shape[1]} features")
     return X_scaled, y
 
 def split_non_iid(X, y, num_clients=5):
@@ -70,4 +70,4 @@ if __name__ == "__main__":
         print("--------------------")
         
     except Exception as e:
-        print(f"❌ Error during data loading: {e}")
+        print(f"Error during data loading: {e}")
