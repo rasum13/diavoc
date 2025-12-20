@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import { signupSchema } from "../schemas/signup";
 import { useEffect, useState } from "react";
 import { api } from "../lib/axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ToggleInput from "../components/ToggleInput";
 
 const Signup = () => {
@@ -90,8 +90,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center text-center h-screen bg-primary-light">
-      <div className="px-16 py-8 flex flex-col w-lg bg-neutral-50 rounded-md shadow-[0_8px_32px] shadow-neutral-200">
+    <div className="flex flex-col justify-center items-center text-center h-screen  bg-linear-to-br to-primary/30 from-white">
+      <div className="px-16 py-8 flex flex-col w-lg bg-neutral-50 rounded-xl shadow-[0_8px_32px] shadow-neutral-100">
         <h1 className="mb-4">Register</h1>
         <form className="grid grid-rows-3 gap-4" onSubmit={submit}>
           <Input
@@ -176,6 +176,7 @@ const Signup = () => {
             {isSubmitting ? "Signing up..." : "Register"}
           </Button>
         </form>
+        <div className="m-2">Already an account? <Link className="text-primary hover:text-primary-dark" to="/login">Sign in</Link> instead</div>
       </div>
     </div>
   );

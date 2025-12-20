@@ -7,7 +7,7 @@ const Record = () => {
   const [upload, setUpload] = useState(false);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen">
+    <div className="flex flex-col items-center justify-center w-full h-[90vh]">
       {upload ? (
         <>
           <h1 className="mt-6">Upload Audio</h1>

@@ -59,8 +59,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center text-center h-screen bg-primary-light">
-      <div className="px-16 py-8 flex flex-col w-lg bg-neutral-50 rounded-md shadow-[0_8px_32px] shadow-neutral-200">
+    <div className="flex flex-col justify-center items-center text-center h-screen bg-linear-to-br to-primary/30 from-white">
+      <div className="px-16 py-8 flex flex-col w-lg bg-neutral-50 rounded-xl shadow-[0_8px_32px] shadow-neutral-100">
         <h1 className="mb-4">Login</h1>
         <form className="grid grid-rows-3 gap-4" onSubmit={submit}>
           <Input
