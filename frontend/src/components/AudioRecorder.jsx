@@ -6,6 +6,7 @@ import { historyItemCreateSchema } from "../schemas/history";
 import { useState, useEffect } from "react";
 import { api } from "../lib/axios";
 import { Mic } from "lucide-react";
+import Diagnosis from "./Diagnosis";
 
 const requiredAudioLength = 30;
 
@@ -36,6 +37,12 @@ const AudioRecorder = () => {
       setSending(false);
     }
   };
+
+  useEffect(() => {
+    if (seconds >= requiredAudioLength) {
+      stopRecording();
+    }
+  }, [seconds])
 
   useEffect(() => {
     const addHistory = async () => {
