@@ -82,10 +82,9 @@ class DiaVocInferenceSystem:
         stds = [np.std(embedding[i*chunk_size:(i+1)*chunk_size]) for i in range(16)]
         return np.array(means + stds)
     
-    def _process_features(self, wav_path, age, gender, bmi, ethnicity='asian'):
+    def predict_from_wav(self, wav_path, age, gender, bmi, ethnicity='asian'):
         """
-        Internal method to process all features from audio and patient data.
-        Returns the final feature vector ready for prediction.
+        Predict diabetes risk from voice recording and patient data.
         
         Args:
             wav_path: Path to audio file
@@ -95,7 +94,7 @@ class DiaVocInferenceSystem:
             ethnicity: Patient ethnicity (default 'asian')
             
         Returns:
-            X_final: Final feature vector after all preprocessing
+            dict with 'diagnosis' and 'probability' keys
         """
         # Extract voice embedding
         raw_embedding = self._extract_voice_embedding(wav_path)
@@ -122,25 +121,6 @@ class DiaVocInferenceSystem:
         X_scaled = self.scaler.transform(X)
         X_final = self.feature_selector.transform(X_scaled)
         
-        return X_final
-    
-    def predict_from_wav(self, wav_path, age, gender, bmi, ethnicity='asian'):
-        """
-        Predict diabetes risk from voice recording and patient data.
-        
-        Args:
-            wav_path: Path to audio file
-            age: Patient age
-            gender: Patient gender ('male' or 'female')
-            bmi: Patient BMI
-            ethnicity: Patient ethnicity (default 'asian')
-            
-        Returns:
-            dict with 'diagnosis' and 'probability' keys
-        """
-        # Get processed features
-        X_final = self._process_features(wav_path, age, gender, bmi, ethnicity)
-        
         # Predict
         prob = self.model.predict_proba(X_final)[0][1]
         prediction = int(prob >= 0.5)
@@ -149,46 +129,3 @@ class DiaVocInferenceSystem:
             "diagnosis": "DIABETIC" if prediction else "HEALTHY",
             "probability": float(prob)
         }
-    
-    def predict_with_features(self, wav_path, age, gender, bmi, ethnicity='asian'):
-        """
-        Predict diabetes risk and return both prediction and features for XAI.
-        
-        Args:
-            wav_path: Path to audio file
-            age: Patient age
-            gender: Patient gender ('male' or 'female')
-            bmi: Patient BMI
-            ethnicity: Patient ethnicity (default 'asian')
-            
-        Returns:
-            dict with 'diagnosis', 'probability', and 'features' keys
-        """
-        # Get processed features
-        X_final = self._process_features(wav_path, age, gender, bmi, ethnicity)
-        
-        # Predict
-        prob = self.model.predict_proba(X_final)[0][1]
-        prediction = int(prob >= 0.5)
-        
-        return {
-            "diagnosis": "DIABETIC" if prediction else "HEALTHY",
-            "probability": float(prob),
-            "features": X_final  # Return features for XAI
-        }
-    
-    def get_final_features(self, wav_path, age, gender, bmi, ethnicity='asian'):
-        """
-        Extract the final feature vector used for prediction (for XAI purposes).
-        
-        Args:
-            wav_path: Path to audio file
-            age: Patient age
-            gender: Patient gender ('male' or 'female')
-            bmi: Patient BMI
-            ethnicity: Patient ethnicity (default 'asian')
-            
-        Returns:
-            np.ndarray: Final feature vector after all preprocessing
-        """
-        return self._process_features(wav_path, age, gender, bmi, ethnicity)
