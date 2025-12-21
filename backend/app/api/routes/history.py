@@ -24,7 +24,7 @@ def get_history(limit: int | None = None, current_user: UserOutput = Depends(get
     history_list = db.query(ScreeningHistory).filter(ScreeningHistory.user_id == current_user.id).all()
     # print(history_list)
     if limit:
-        return history_list[:limit]
+        return history_list[-limit:]
     return history_list
 
 
