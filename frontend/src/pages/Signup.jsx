@@ -175,6 +175,7 @@ const Signup = () => {
           <Button type="submit" disabled={isSubmitting}>
             {isSubmitting ? "Signing up..." : "Register"}
           </Button>
+          {errors._form && <p className="text-red">{errors._form}</p>}
         </form>
         <div className="m-2">Already an account? <Link className="text-primary hover:text-primary-dark" to="/login">Sign in</Link> instead</div>
       </div>

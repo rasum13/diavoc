@@ -82,6 +82,7 @@ const Login = () => {
           <Button type="submit" disabled={isSubmitting}>
             {isSubmitting ? "Logging in..." : "Log In"}
           </Button>
+          {errors._form && <p className="text-red">{errors._form}</p>}
         </form>
         <div className="m-2">Dont have an account? <Link className="text-primary hover:text-primary-dark" to="/signup">Create one</Link></div>
       </div>
