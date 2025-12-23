@@ -1,5 +1,49 @@
 # Diavoc
 
+***Diavoc - your voice, your health, your privacy***
+
+Diavoc is a unique project that combines the power of machine learning (ML) and modern web development. Its primary goal is to provide insights into diabetes from voice inputs. The repository is divided into two key components:
+
+- **Frontend**: Built using React and Vite to deliver a seamless and responsive user interface.
+- **Backend**: Powered by a machine learning model to analyze and interpret voice data related to diabetes.
+
+---
+
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+- [Setup Instructions](#setup-instructions)
+- [Future Improvements](#future-improvements)
+- [License](#license)
+
+---
+
+## Overview
+
+### Purpose
+Diavoc interprets voice input to gather health insights related to diabetes. It's designed to make health data interpretation more accessible.
+
+### Architecture
+The application is structured as follows:
+1. **Frontend**: React application built with Vite.
+2. **Backend**: Python-powered application leveraging a machine learning model to analyze audio inputs.
+
+---
+
+## Features
+
+### Frontend
+- Real-time interaction with the backend.
+- Clean and fast user interface tailored for voice interactions.
+
+### Backend
+- **Voice-to-Diabetes** model processes voice inputs.
+````markdown
+# Diavoc
+
 Diavoc is a unique project that combines the power of machine learning (ML) and modern web development. Its primary goal is to provide insights into diabetes from voice inputs. The repository is divided into two key components:
 
 - **Frontend**: Built using React and Vite to deliver a seamless and responsive user interface.
@@ -105,4 +149,10 @@ The application is structured as follows:
   - Focus on underserved groups and rural areas where lab access is limited.
 - **Aligned with SDGs**:
   - Strengthens digital health systems and drives worldwide health equity.
+
+## Hackathon
+
+This repository was developed during the MBMC Ideax 2025 hackathon organized by MBMC.
+
+````
 
